@@ -14,32 +14,23 @@ class RootWidget(GridLayout):
         super(RootWidget, self).__init__(**kwargs)
         self.cols = 3
         self.playerOnesTurn = True
-        self.one = "-"
-        self.two = "-"
-        self.three = "-"
-        self.four = "-"
-        self.five = "-"
-        self.six = "-"
-        self.seven = "-"
-        self.eight = "-"
-        self.nine = "-"
-        areaOne = Button(text=str(self.one))
+        areaOne = Button(text='-', font_size=50)
         areaOne.bind(on_press=self.updateStuff)
-        areaTwo = Button(text=str(self.two))
+        areaTwo = Button(text='-', font_size=50)
         areaTwo.bind(on_press=self.updateStuff)
-        areaThree = Button(text=str(self.three))
+        areaThree = Button(text='-', font_size=50)
         areaThree.bind(on_press=self.updateStuff)
-        areaFour = Button(text=str(self.four))
+        areaFour = Button(text='-', font_size=50)
         areaFour.bind(on_press=self.updateStuff)
-        areaFive = Button(text=str(self.five))
+        areaFive = Button(text='-', font_size=50)
         areaFive.bind(on_press=self.updateStuff)
-        areaSix = Button(text=str(self.six))
+        areaSix = Button(text='-', font_size=50)
         areaSix.bind(on_press=self.updateStuff)
-        areaSeven = Button(text=str(self.seven))
+        areaSeven = Button(text='-', font_size=50)
         areaSeven.bind(on_press=self.updateStuff)
-        areaEight = Button(text=str(self.eight))
+        areaEight = Button(text='-', font_size=50)
         areaEight.bind(on_press=self.updateStuff)
-        areaNine = Button(text=str(self.nine))
+        areaNine = Button(text='-', font_size=50)
         areaNine.bind(on_press=self.updateStuff)
         self.add_widget(areaOne)
         self.add_widget(areaTwo)
@@ -53,16 +44,16 @@ class RootWidget(GridLayout):
 
     def updateStuff(self, instance):
         if self.playerOnesTurn:
-            if instance.text == str('-'):
-                instance.text = str('X')
+            if instance.text == '-':
+                instance.text = 'X'
                 self.playerOnesTurn = False
             else:
                 popup = Popup(title="", content=Label(
                     text='Spot Taken'), size_hint=(None, None), size=(100, 100))
                 popup.open()
         else:
-            if instance.text == str('-'):
-                instance.text = str("O")
+            if instance.text == '-':
+                instance.text = "O"
                 self.playerOnesTurn = True
             else:
                 popup = Popup(title="", content=Label(
@@ -70,11 +61,11 @@ class RootWidget(GridLayout):
                 popup.open()
 
 
-class MyApp(App):
+class TicTacToeApp(App):
     def build(self):
         root = RootWidget()
         return root
 
 
 if __name__ == "__main__":
-    MyApp().run()
+    TicTacToeApp().run()
