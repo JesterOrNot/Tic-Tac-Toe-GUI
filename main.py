@@ -14,6 +14,15 @@ class RootWidget(GridLayout):
         super(RootWidget, self).__init__(**kwargs)
         self.cols = 3
         self.playerOnesTurn = True
+        global areaOne
+        global areaTwo
+        global areaThree
+        global areaFour
+        global areaFive
+        global areaSix
+        global areaSeven
+        global areaEight
+        global areaNine
         areaOne = Button(text='-', font_size=50)
         areaOne.bind(on_press=self.updateStuff)
         areaTwo = Button(text='-', font_size=50)
@@ -32,7 +41,6 @@ class RootWidget(GridLayout):
         areaEight.bind(on_press=self.updateStuff)
         areaNine = Button(text='-', font_size=50)
         areaNine.bind(on_press=self.updateStuff)
-        print(areaNine.text)
         self.add_widget(areaOne)
         self.add_widget(areaTwo)
         self.add_widget(areaThree)
@@ -60,7 +68,28 @@ class RootWidget(GridLayout):
                 popup = Popup(title="", content=Label(
                     text='Spot Taken'), size_hint=(None, None), size=(100, 100))
                 popup.open()
-
+        if (areaOne.text == "X" and areaFour.text == "X" and areaSeven.text == "X") or \
+            (areaTwo.text == "X" and areaFive.text == "X" and areaEight.text == "X") or \
+            (areaThree.text == "X" and areaSix.text == "X" and areaNine.text == "X") or \
+            (areaOne.text == "X" and areaTwo.text == "X" and areaThree.text == "X") or \
+            (areaFour.text == "X" and areaFive.text == "X" and areaSix.text == "X") or \
+            (areaSeven.text == "X" and areaEight.text == "X" and areaNine.text == "X") or \
+            (areaOne.text == "X" and areaFive.text == "X" and areaNine.text == "X") or \
+                (areaSeven.text == "X" and areaFive.text == "X" and areaThree.text == "X"):
+            popup = Popup(title="", content=Label(text='X Wins'),
+                          size_hint=(None, None), size=(100, 100))
+            popup.open()
+        elif (areaOne.text == "O" and areaFour.text == "O" and areaSeven.text == "O") or \
+            (areaTwo.text == "O" and areaFive.text == "O" and areaEight.text == "O") or \
+            (areaThree.text == "O" and areaSix.text == "O" and areaNine.text == "O") or \
+            (areaOne.text == "O" and areaTwo.text == "O" and areaThree.text == "O") or \
+            (areaFour.text == "O" and areaFive.text == "O" and areaSix.text == "O") or \
+            (areaSeven.text == "O" and areaEight.text == "O" and areaNine.text == "O") or \
+            (areaOne.text == "O" and areaFive.text == "O" and areaNine.text == "O") or \
+                (areaSeven.text == "O" and areaFive.text == "O" and areaThree.text == "O"):
+            popup = Popup(title="", content=Label(text='O Wins'),
+                          size_hint=(None, None), size=(100, 100))
+            popup.open()
 
 class TicTacToeApp(App):
     def build(self):
