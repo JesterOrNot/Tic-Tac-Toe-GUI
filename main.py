@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ListProperty
 from kivy.uix.widget import Widget
@@ -42,17 +43,18 @@ class RootWidget(GridLayout):
 
     def updateOne(self, instance):
         if self.playerOnesTurn:
-            self.one = str('X')
+            instance.text = str('X')
             self.playerOnesTurn = False
         else:
-            self.one = str("O")
+            instance.text = str("O")
             self.playerOnesTurn = True
         print(self.one)
 
 
 class MyApp(App):
     def build(self):
-        return RootWidget()
+        root = RootWidget()
+        return root
 
 
 if __name__ == "__main__":
