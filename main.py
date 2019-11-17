@@ -46,6 +46,7 @@ class RootWidget(GridLayout):
         self.add_widget(areaSeven)
         self.add_widget(areaEight)
         self.add_widget(areaNine)
+
     def reset_board(self):
         areaOne.text = "-"
         areaTwo.text = "-"
@@ -56,6 +57,7 @@ class RootWidget(GridLayout):
         areaSeven.text = "-"
         areaEight.text = "-"
         areaNine.text = "-"
+
     def updateStuff(self, instance):
         if self.playerOnesTurn:
             if instance.text == '-':
@@ -85,6 +87,7 @@ class RootWidget(GridLayout):
             popup = Popup(title="", content=Label(text='X Wins'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
+            self.playerOnesTurn = True
         elif (areaOne.text == "O" and areaFour.text == "O" and areaSeven.text == "O") or \
             (areaTwo.text == "O" and areaFive.text == "O" and areaEight.text == "O") or \
             (areaThree.text == "O" and areaSix.text == "O" and areaNine.text == "O") or \
@@ -97,6 +100,7 @@ class RootWidget(GridLayout):
             popup = Popup(title="", content=Label(text='O Wins'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
+            self.playerOnesTurn = True
         occupiedCount = 0
         theList = [areaOne.text, areaTwo.text, areaThree.text, areaFour.text,
                    areaFive.text, areaSix.text, areaSeven.text, areaEight.text, areaNine.text]
@@ -108,6 +112,7 @@ class RootWidget(GridLayout):
             popup = Popup(title="", content=Label(text='Draw'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
+            self.playerOnesTurn = True
 
 
 class TicTacToeApp(App):
