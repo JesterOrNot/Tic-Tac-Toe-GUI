@@ -51,11 +51,13 @@ class RootWidget(GridLayout):
 
     def updateStuff(self, instance):
         if self.playerOnesTurn:
-            instance.text = str('X')
-            self.playerOnesTurn = False
+            if instance.text == str('-'):
+                instance.text = str('X')
+                self.playerOnesTurn = False
         else:
-            instance.text = str("O")
-            self.playerOnesTurn = True
+            if instance.text == str('-'):
+                instance.text = str("O")
+                self.playerOnesTurn = True
 
 
 class MyApp(App):
