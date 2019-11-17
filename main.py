@@ -22,15 +22,23 @@ class RootWidget(GridLayout):
         self.eight = "-"
         self.nine = "-"
         areaOne = Button(text=str(self.one))
-        areaOne.bind(on_press=self.updateOne)
+        areaOne.bind(on_press=self.updateStuff)
         areaTwo = Button(text=str(self.two))
+        areaTwo.bind(on_press=self.updateStuff)
         areaThree = Button(text=str(self.three))
+        areaThree.bind(on_press=self.updateStuff)
         areaFour = Button(text=str(self.four))
+        areaFour.bind(on_press=self.updateStuff)
         areaFive = Button(text=str(self.five))
+        areaFive.bind(on_press=self.updateStuff)
         areaSix = Button(text=str(self.six))
+        areaSix.bind(on_press=self.updateStuff)
         areaSeven = Button(text=str(self.seven))
+        areaSeven.bind(on_press=self.updateStuff)
         areaEight = Button(text=str(self.eight))
+        areaEight.bind(on_press=self.updateStuff)
         areaNine = Button(text=str(self.nine))
+        areaNine.bind(on_press=self.updateStuff)
         self.add_widget(areaOne)
         self.add_widget(areaTwo)
         self.add_widget(areaThree)
@@ -41,15 +49,13 @@ class RootWidget(GridLayout):
         self.add_widget(areaEight)
         self.add_widget(areaNine)
 
-    def updateOne(self, instance):
+    def updateStuff(self, instance):
         if self.playerOnesTurn:
             instance.text = str('X')
             self.playerOnesTurn = False
         else:
             instance.text = str("O")
             self.playerOnesTurn = True
-        print(self.one)
-
 
 class MyApp(App):
     def build(self):
