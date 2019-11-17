@@ -57,6 +57,7 @@ class RootWidget(GridLayout):
             instance.text = str("O")
             self.playerOnesTurn = True
 
+
 class MyApp(App):
     def build(self):
         root = RootWidget()
