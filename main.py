@@ -32,6 +32,7 @@ class RootWidget(GridLayout):
         areaEight.bind(on_press=self.updateStuff)
         areaNine = Button(text='-', font_size=50)
         areaNine.bind(on_press=self.updateStuff)
+        print(areaNine.text)
         self.add_widget(areaOne)
         self.add_widget(areaTwo)
         self.add_widget(areaThree)
