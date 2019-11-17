@@ -90,6 +90,17 @@ class RootWidget(GridLayout):
             popup = Popup(title="", content=Label(text='O Wins'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
+        occupiedCount = 0
+        theList = [areaOne.text, areaTwo.text, areaThree.text, areaFour.text,
+                   areaFive.text, areaSix.text, areaSeven.text, areaEight.text, areaNine.text]
+        for i in theList:
+            if i == "X" or i == "O":
+                occupiedCount += 1
+        if occupiedCount == 9:
+            popup = Popup(title="", content=Label(text='Draw'),
+                          size_hint=(None, None), size=(100, 100))
+            popup.open()
+
 
 class TicTacToeApp(App):
     def build(self):
