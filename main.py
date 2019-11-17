@@ -3,6 +3,8 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ListProperty
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 
@@ -54,10 +56,18 @@ class RootWidget(GridLayout):
             if instance.text == str('-'):
                 instance.text = str('X')
                 self.playerOnesTurn = False
+            else:
+                popup = Popup(title="", content=Label(
+                    text='Spot Taken'), size_hint=(None, None), size=(100, 100))
+                popup.open()
         else:
             if instance.text == str('-'):
                 instance.text = str("O")
                 self.playerOnesTurn = True
+            else:
+                popup = Popup(title="", content=Label(
+                    text='Spot Taken'), size_hint=(None, None), size=(100, 100))
+                popup.open()
 
 
 class MyApp(App):
