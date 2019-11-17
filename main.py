@@ -1,11 +1,7 @@
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
-from kivy.clock import Clock
-from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ListProperty
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
-from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 
 
@@ -50,7 +46,16 @@ class RootWidget(GridLayout):
         self.add_widget(areaSeven)
         self.add_widget(areaEight)
         self.add_widget(areaNine)
-
+    def reset_board(self):
+        areaOne.text = "-"
+        areaTwo.text = "-"
+        areaThree.text = "-"
+        areaFour.text = "-"
+        areaFive.text = "-"
+        areaSix.text = "-"
+        areaSeven.text = "-"
+        areaEight.text = "-"
+        areaNine.text = "-"
     def updateStuff(self, instance):
         if self.playerOnesTurn:
             if instance.text == '-':
@@ -76,6 +81,7 @@ class RootWidget(GridLayout):
             (areaSeven.text == "X" and areaEight.text == "X" and areaNine.text == "X") or \
             (areaOne.text == "X" and areaFive.text == "X" and areaNine.text == "X") or \
                 (areaSeven.text == "X" and areaFive.text == "X" and areaThree.text == "X"):
+            self.reset_board()
             popup = Popup(title="", content=Label(text='X Wins'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
@@ -87,6 +93,7 @@ class RootWidget(GridLayout):
             (areaSeven.text == "O" and areaEight.text == "O" and areaNine.text == "O") or \
             (areaOne.text == "O" and areaFive.text == "O" and areaNine.text == "O") or \
                 (areaSeven.text == "O" and areaFive.text == "O" and areaThree.text == "O"):
+            self.reset_board()
             popup = Popup(title="", content=Label(text='O Wins'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
@@ -97,6 +104,7 @@ class RootWidget(GridLayout):
             if i == "X" or i == "O":
                 occupiedCount += 1
         if occupiedCount == 9:
+            self.reset_board()
             popup = Popup(title="", content=Label(text='Draw'),
                           size_hint=(None, None), size=(100, 100))
             popup.open()
