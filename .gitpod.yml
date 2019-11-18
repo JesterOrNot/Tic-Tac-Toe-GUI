@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 ports:
   - port: 6080
-  - port: 5900
+  - port: 35900
   - port: 5900
 tasks:
   - init: pip3 install -r requirements.txt

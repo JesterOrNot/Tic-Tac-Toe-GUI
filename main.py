@@ -37,6 +37,15 @@ class RootWidget(GridLayout):
         areaSeven.bind(on_press=self.updateStuff)
         areaEight.bind(on_press=self.updateStuff)
         areaNine.bind(on_press=self.updateStuff)
+        areaOne.background_normal=""
+        areaTwo.background_normal=""
+        areaThree.background_normal=""
+        areaFour.background_normal=""
+        areaFive.background_normal=""
+        areaSix.background_normal=""
+        areaSeven.background_normal=""
+        areaEight.background_normal=""
+        areaNine.background_normal=""
         self.add_widget(areaOne)
         self.add_widget(areaTwo)
         self.add_widget(areaThree)
@@ -57,11 +66,22 @@ class RootWidget(GridLayout):
         areaSeven.text = "-"
         areaEight.text = "-"
         areaNine.text = "-"
+        areaOne.background_normal=""
+        areaTwo.background_normal=""
+        areaThree.background_normal=""
+        areaFour.background_normal=""
+        areaFive.background_normal=""
+        areaSix.background_normal=""
+        areaSeven.background_normal=""
+        areaEight.background_normal=""
+        areaNine.background_normal=""
 
     def updateStuff(self, instance):
         if self.playerOnesTurn:
             if instance.text == '-':
                 instance.text = 'X'
+                instance.font_size = 1
+                instance.background_normal = "assets/X.png"
                 self.playerOnesTurn = False
             else:
                 popup = Popup(title="", content=Label(
@@ -70,6 +90,7 @@ class RootWidget(GridLayout):
         else:
             if instance.text == '-':
                 instance.text = "O"
+                instance.background_normal = "assets/O.png"
                 self.playerOnesTurn = True
             else:
                 popup = Popup(title="", content=Label(
